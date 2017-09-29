@@ -1,0 +1,15 @@
+*,*:before,*:after
+ border: solid 1px
+
+@mixin size($w,$h:$w)
+ width: $w
+ height: $h
+
+$colorB: #3E3A39
+
+html,body
+  
+.postit
+ +size(240px)
+ font-size: calc(240px / 4 - 5px)
+ display: flex
