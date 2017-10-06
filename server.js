@@ -17,10 +17,39 @@ mongo.connect(credentials.Mongo,function (err, db) {
         let sendStatus = function (s) {
             socket.emit('status', s);
         };
+
         postits.find({}).limit(20).toArray(function (err, res) {
             if (err) throw err;
-            socket.emit('output', res);
-            console.log('开门', res);
+            if(res.length>0) {
+                socket.emit('output', res);
+            }else {
+                //初始化一些数据，可删除
+                var initdata = [ {
+                    "color" : "yellow",
+                    "pos" : {
+                        "x" : 489,
+                        "y" : 55
+                    },
+                    "text" : "波杰克"
+                },  {
+                    "color" : "blue",
+                    "pos" : {
+                        "x" : 690,
+                        "y" : 252
+                    },
+                    "text" : "我喜欢"
+                }, {
+                    "color" : "red",
+                    "pos" : {
+                        "x" : 393,
+                        "y" : 354
+                    },
+                    "text" : "马男"
+                } ];
+                postits.insertMany(initdata);
+                //初始化 结束
+                socket.emit('output', initdata);
+            }
         });
 
         socket.on('addpostit', function (newpostit) {

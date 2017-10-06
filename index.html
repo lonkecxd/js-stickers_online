@@ -2,14 +2,12 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Movable Stickers using Firebase</title>
-  
-  
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <title>Movable Stickers using MongoDB and Socket.io</title>
 
-      <link rel="stylesheet" href="css/style.css">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap-grid.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 
-  
 </head>
 
 <body>
@@ -27,7 +25,7 @@
     </div>
   </transition-group>
   <ul class="datalist">
-    <button @click="addPostit()">+新增便利贴</button>
+    <button class="btn" @click="addPostit()">+新增便利贴</button>
     <li>{{status}}</li>
     <li v-for="(postit,index) in postits">
       <input v-model="postit.text"/>
