@@ -1,0 +1,22 @@
+#app
+ transition-group(name="fade",tag="ul")
+  .li.postit(v-for="(postit,pid) in postits",
+             :key="pid",
+             :style="posCss(postit)",
+             @mousedown="selectId($event,pid)")
+    .text {{postit.text}}
+    ul.datalist
+    .clist
+     .block(v-for="color in colorlist", :style="{backgroundColor: color.color}",@click="setColor(pid,color.name)")
+     button.btn(@click="setText(pid)") 改
+      //- i.fa.fa-pencil
+     button.btn(@click="deleteit(pid)") 删
+      //- i.fa.fa-trash-o
+  
+ ul.datalist
+  button(@click="add_postit()") +新增便利贴
+  li(v-for="(postit,id) in postits")
+   input(v-model="postit.text")
+   .clist
+    .block(v-for="color in colorlist", :style="{backgroundColor: color.color}",@click="postit.color=color.name")
+  

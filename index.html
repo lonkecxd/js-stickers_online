@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Movable Stickers using Firebase</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<div id="app">
+  <transition-group name="fade" tag="ul">
+    <div class="li postit" v-for="(postit,pid) in postits" :key="pid" :style="posCss(postit)" @mousedown="selectId($event,pid)">
+      <div class="text">{{postit.text}}</div>
+      <ul class="datalist"></ul>
+      <div class="clist">
+        <div class="block" v-for="color in colorlist" :style="{backgroundColor: color.color}" @click="setColor(pid,color.name)"></div>
+        <button class="btn" @click="setText(pid)">改</button>
+        <button class="btn" @click="deleteit(pid)">删</button>
+      </div>
+    </div>
+  </transition-group>
+  <ul class="datalist">
+    <button @click="addPostit()">+新增便利贴</button>
+    <li>{{status}}</li>
+    <li v-for="(postit,index) in postits">
+      <input v-model="postit.text"/>
+      <div class="clist">
+        <div class="block" v-for="color in colorlist" :style="{backgroundColor: color.color}" @click="setColor(index,color.name)"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <script  src="js/index.js"></script>
+
+</body>
+</html>

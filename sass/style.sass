@@ -1,0 +1,64 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
+*,*:before,*:after
+ // border: solid 1px
+ font-family: 'Noto Sans TC'
+
+@mixin size($w,$h:$w)
+ width: $w
+ height: $h
+
+@mixin flex_center
+ display: flex
+ justify-content: center
+ align-items: center
+
+$cblack: #3E3A39
+$cblue: #ccffff
+$cgreen: #ccffcc
+$cyellow: #ffffcc
+$cred: #ffccff
+
+html,body
+ background-color: $cblack
+ color: #44403f
+ +size(100%)
+ padding: 0
+ margin: 0
+  
+.postit
+ +size(240px)
+ font-size: calc(240px / 4 - 5px)
+ +flex_center
+ background-color: $cgreen
+ box-shadow: 15px 10px 40px rgba(black,0.4)
+ position: absolute
+ transition: background-color 0.5s
+ cursor: pointer
+
+ .text 
+  pointer-events: none
+  
+ .clist
+  position: absolute
+  bottom: -60px
+  display: flex
+  flex-direaction: row
+  
+  .block
+   margin-right: 10px
+
+.datalist
+ position: fixed
+ right: 20px
+ top: 20px
+ 
+.block
+ +size(30px)
+ display: inline-block
+
+.fade-enter-active, .fade-leave-active
+ transition: .5s
+.fade-enter, .fade-leave-to
+ opacity: 0
+ transform: scale(0.1)
+
