@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-    Mongo: 'mongodb://127.0.0.1/stickers',
+    Mongo: 'mongodb://127.0.0.1/topology',
     Socketio: {
         url:'http://127.0.0.1',
         port: '4321'

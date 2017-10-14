@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Movable Stickers using MongoDB and Socket.io</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+</head>
+
+<body>
+<canvas id="myCanvas"></canvas>
+<div id="app">
+  <transition-group name="fade" tag="ul">
+    <div class="li postit" v-for="(postit,pid) in postits" :key="pid" :style="posCss(postit)">
+        <div :id="'img'+pid" class="imgblock" @mousedown="selectId($event,pid)" @mouseover="changeStyle($event,pid)" @mouseout="restoreStyle($event,pid)" :style="img_css"></div>
+        <img class="img unselect" :class="{'inactive':postit.status==-1}" :src="'./top_img/'+postit.src">
+        <div class="block">
+            <div class="text" @click="setText(pid)">{{postit.text}}</div>
+        </div>
+      <i class="fa fa-chain plus" @click="addline(pid)" title="新建或连接" aria-hidden="true"></i>
+      <i class="fa fa-trash delete" @click="deleteit(pid)" title="删除" aria-hidden="true"></i>
+    </div>
+  </transition-group>
+  <ul class="datalist">
+    <button class="addnew" style="cursor:pointer;margin-bottom: 20px" @click="addPostit()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增设备</button>
+    <button class="deleteall" style="cursor:pointer;margin-bottom: 20px" @click="deleteAll()">删除</button>
+    <li v-for="(postit,index) in postits" style="margin-bottom: 10px">
+      <input v-model="postit.text"/>
+    </li>
+  </ul>
+  <!--<input type="range" class="silder" min="0.5" max="1.0" step="0.001" v-model="scale" style="display: block;margin: 20px auto;width: 800px;"/>-->
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script  src="../static/js/index.js"></script>
+
+</body>
+</html>
