@@ -17,16 +17,17 @@
   <transition-group name="fade" tag="ul">
     <div class="li postit" v-for="(postit,pid) in postits" :key="pid" :style="posCss(postit)">
         <div :id="'img'+pid" class="imgblock" @mousedown="selectId($event,pid)" @mouseover="changeStyle($event,pid)" @mouseout="restoreStyle($event,pid)" :style="img_css"></div>
-        <img class="img unselect" :class="{'inactive':postit.status==-1}" :src="'./top_img/'+postit.src">
+        <img class="img unselect" :class="{'inactive':postit.status==-1}" :src="'../static/top_img/'+postit.src">
         <div class="block">
             <div class="text" @click="setText(pid)">{{postit.text}}</div>
         </div>
       <i class="fa fa-chain plus" @click="addline(pid)" title="新建或连接" aria-hidden="true"></i>
+      <i class="fa fa-chain chimg" @click="changeimg(pid)" title="换图" aria-hidden="true"></i>
       <i class="fa fa-trash delete" @click="deleteit(pid)" title="删除" aria-hidden="true"></i>
     </div>
   </transition-group>
   <ul class="datalist">
-    <button class="addnew" style="cursor:pointer;margin-bottom: 20px" @click="addPostit()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增设备</button>
+    <button class="addnew" style="cursor:pointer;margin-bottom: 20px" @click="addPostit()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增产品</button>
     <button class="deleteall" style="cursor:pointer;margin-bottom: 20px" @click="deleteAll()">删除</button>
     <li v-for="(postit,index) in postits" style="margin-bottom: 10px">
       <input v-model="postit.text"/>

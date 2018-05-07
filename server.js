@@ -5,15 +5,35 @@ const express=  require('express');
 const path = require('path');
 const app = express();
 app.listen(4000,function () {
-    console.log('App started');
+    console.log('App started on http://localhost:4000');
 });
 app.set('views', path.join(__dirname,'views'));
 app.use(express.static(path.join(__dirname, 'static')));
 app.set('view engine', 'pug');
 
+// upload image setting
+const multer = require('multer');
+let storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '/top_img')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname)
+    }
+});
+const upload = multer({dest: '/top_img',storage:storage});
 
 app.get('/',(req,res)=>{
     res.render('index');
+});
+
+app.get('/terms',(req,res)=>{
+    res.render('terms');
+});
+
+
+app.post('/chimg', upload.single('avatar'),(req,res)=>{
+    res.send('ok');
 });
 
 const credentials = require('./credentials');
@@ -21,7 +41,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io').listen(5200).sockets;
+const client = require('socket.io').listen(credentials.Socketio.port).sockets;
 
 mongo.connect(credentials.Mongo,function (err, db) {
     if (err) throw err;

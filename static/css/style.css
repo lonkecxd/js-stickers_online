@@ -47,6 +47,25 @@ canvas {
   transition: opacity 0.3s;
 
 }
+.postit .chimg {
+     position: absolute;
+     bottom: 60px;
+     right: -40px;
+     color: white;
+     opacity: 0;
+     transition: opacity 0.3s;
+     z-index: 1;
+ }
+.postit .chimg input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 999;
+    font-size:30px;
+    width: 30px;
+    cursor: pointer;
+}
 .postit .delete {
   position: absolute;
   top: 0;
@@ -61,12 +80,21 @@ canvas {
 .postit:hover .plus{
   opacity: .5;
 }
+.postit:hover .chimg{
+    opacity: .5;
+}
 .postit .delete:hover {
   opacity: 1;
 }
 .postit .plus:hover {
   opacity: 1;
 }
+.postit .chimg:hover {
+    opacity: 1;
+}
+/*.postit input:hover .chimg{*/
+    /*opacity: 1;*/
+/*}*/
 .datalist {
   position: fixed;
   right: 20px;

@@ -1,4 +1,5 @@
 var socket = io.connect('http://127.0.0.1:5200');
+// var socket = io.connect('http://104.236.67.17:5200');
 
 var c=$("#myCanvas")[0];
 var ctx = c.getContext("2d");
@@ -159,7 +160,7 @@ var vm = new Vue({
       }
     },
     addPostit(){
-      socket.emit('addpostit',{text:"路由"+(Math.random()*1000+1000).toFixed(0),src:"router.jpg",status:1,pos:{x:300+Math.random()*300,y:150+Math.random()*150}});
+      socket.emit('addpostit',{text:"基金"+(Math.random()*1000+1000).toFixed(0),src:"/top_img/router.jpg",status:1,pos:{x:300+Math.random()*300,y:150+Math.random()*150}});
     },
     setText(index){
       alertify
@@ -206,6 +207,23 @@ var vm = new Vue({
             },()=>{
                 alertify.error('您取消了操作。');
             });
+    },
+    onFileChange(e,pid) {
+          var files = e.target.files || e.dataTransfer.files;
+          if (!files.length)
+              return;
+          this.createImage(files[0],pid);
+    },
+    createImage(file,pid) {
+          var image = new Image();
+          var reader = new FileReader();
+          var vm = this;
+
+          reader.onload = (e) => {
+              $('#img'+pid).attr('src',e.target.result)
+              // vm.postits[pid].src = e.target.result;
+          };
+          reader.readAsDataURL(file);
     }
   }
 });
@@ -221,7 +239,7 @@ window.onmouseup = (evt)=>{
 window.ondblclick = (evt)=>{
     if(vm.first_click) {
         vm.first_click = false;
-        socket.emit('addpostit',{text:"路由"+(Math.random()*1000+1000).toFixed(0),src:"router.jpg",status:1,pos:{x:event.pageX,y: event.pageY}});
+        socket.emit('addpostit',{text:"基金"+(Math.random()*1000+1000).toFixed(0),src:"/top_img/router.jpg",status:1,pos:{x:event.pageX,y: event.pageY}});
         socket.emit('addline',
             {   start:vm.postits[vm.first_index],
                 endpos:{x:event.pageX,y: event.pageY}
