@@ -4,5 +4,5 @@
 
 ![](https://github.com/lonkecxd/pretty-stickers-online/blob/master/display.gif)
 
-#### The website is slightly different from the display, but they share the most part of the code.
+#### The website is slightly different from the post above, but they share the most part of the code.
  
