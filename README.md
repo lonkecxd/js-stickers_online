@@ -2,7 +2,7 @@
 
 #### you can also check this out on http://www.workmates.me
 
-![](https://github.com/lonkecxd/pretty-stickers-online/blob/master/display.gif)
+![image](https://github.com/lonkecxd/pretty-stickers-online/blob/master/display.gif)
 
 #### The website is slightly different from the post above, but they share the most part of the code.
  
