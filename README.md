@@ -4,6 +4,6 @@
 
 You can find this one at https://codepen.io/cxd/pen/zEwpBx.
 
-### You can add multiple stickers, edit their content, drag and drop and connect lines. Is that great?
+### You can add multiple stickers, edit their content, drag and drop and connect lines. Isn't it great?
 ![image](https://github.com/lonkecxd/pretty-stickers-online/blob/master/add.gif)
  
