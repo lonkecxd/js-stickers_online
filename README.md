@@ -1,9 +1,18 @@
-### Easy-connect Stickers
+# 💎"Easy-Stickers" 
+--by 知乎 [想东学长](https://www.zhihu.com/people/cxdcxd)
+### 🎉Functions：
+* add stickers
+* edit title
+* upload image
+* move around stickers (drag and drop).
+  * connect two stickers with a line
+  * drag a line and double click on empty to create a new sticker
+* clear all
+* organize all the stickers in the right panel
 
 ![image](https://github.com/lonkecxd/pretty-stickers-online/blob/master/connect.gif)
 
-You can find this one at https://codepen.io/cxd/pen/zEwpBx.
 
-### You can add multiple stickers, edit their content, drag and drop and connect lines. Isn't it great?
+
 ![image](https://github.com/lonkecxd/pretty-stickers-online/blob/master/add.gif)
  
