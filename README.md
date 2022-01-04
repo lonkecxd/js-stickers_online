@@ -1,5 +1,5 @@
 # 💎"Easy-Stickers" 
---by 知乎 [想东学长](https://www.zhihu.com/people/cxdcxd)
+--by 知乎 [陈零一](https://www.zhihu.com/people/cxdcxd)
 ### 🎉Functions：
 * add stickers
 * edit title
