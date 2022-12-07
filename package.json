@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/lonkecxd/pretty-stickers#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "html": "^1.0.0",
     "jquery": "^3.2.1",
     "mongodb": "^2.2.31",
